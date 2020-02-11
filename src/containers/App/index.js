@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
 import style from './styles.js';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/styles';//Để chạy file style trên file index này
-import Taskboard from '../../Taskboard/index.js';
+import Taskboard from './../Taskboard';
 import theme from "./../../commons/Theme";//Nhúng file Theme để sd trong cả project
+import { Provider } from 'react-redux';
+import configureStore from './../../reudx/configureStore';
+// import toastify
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const store = configureStore();
 
 class App extends Component {
   render() {
     console.log('prop: ', this.props);
     return (
-      <ThemeProvider theme={theme}>
-        <Taskboard />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <ToastContainer />
+          <Taskboard />
+        </ThemeProvider>
+      </Provider>
       // <div className="App">
       //   <h1>Redux saga</h1>
       //   <Button variant="contained" color="primary">Material UI Button</Button>
