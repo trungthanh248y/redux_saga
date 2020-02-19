@@ -27,15 +27,15 @@ export const fetchListTaskFailed = (error) => {
 // B1: Gọi fetchListTaskRequest()
 // B2: Reset: state tasks => []
 // B3: Gọi fetchListTaskSuccess ( với data truyền vào là responce)
-export const fetchListTaskRequest = () => {
-    return dispatch => {
-        dispatch(fetchListTask());
-        taskApis.getList().then(resp => {
-            //Khi gọi các api thành công => gọi đến các dispatch tương ứng
-            const { data } = resp;
-            dispatch(fetchListTaskSuccess(data));
-        }).catch(error => {
-            dispatch(fetchListTaskFailed(error));
-        });
-    };
-};
+// export const fetchListTaskRequest = () => {
+//     return dispatch => {
+//         dispatch(fetchListTask());
+//         taskApis.getList().then(resp => {
+//             //Khi gọi các api thành công => gọi đến các dispatch tương ứng
+//             const { data } = resp;
+//             dispatch(fetchListTaskSuccess(data));
+//         }).catch(error => {
+//             dispatch(fetchListTaskFailed(error));
+//         });
+//     };
+// };
