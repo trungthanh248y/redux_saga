@@ -1,9 +1,9 @@
 //root saga là một generator function
-import { fork, take, call, put, delay } from 'redux-saga/effects';
+import { fork, take, call, put, delay, takeLatest, select } from 'redux-saga/effects';
 import * as taskTypes from '../constants/task';
 import { getList } from '../apis/task';
 import { STATUS_CODE } from './../constants';
-import { fetchListTaskSuccess, fetchListTaskFailed } from '../actions/task';
+import { fetchListTaskSuccess, fetchListTaskFailed, filterTaskSuccess } from '../actions/task';
 import { showLoading, hideLoading} from '../actions/ui';
 
 // B1: Thực thi action fetch task
@@ -37,9 +37,20 @@ function* watchCreateTaskAction() {
     console.log('watch Create TaskAction');
 }
 
+function* filterTaskSaga({ payload }) {
+    yield delay(500);// Sử dụng delay để khi nhập đến từ khóa cuối cùng 0.5s ms thực hiện gọi api
+    const { keyword } = payload;
+    const list = yield select(state => state.task.listTask);//Sử dụng select để gọi từ store vào saga
+    const filteredTask = list.filter(task => 
+        task.title.trim().toLowerCase().includes(keyword.trim().toLowerCase())
+    );
+    yield put(filterTaskSuccess(filteredTask));
+}
+
 function* rootSaga() {//tương tự rootReducers rootSaga dùng để chia nhỏ các file xử lý saga
     yield fork(watchFetchListTaskAction);//fork là non-blocking(k có thứ tự)
     yield fork(watchCreateTaskAction);
+    yield takeLatest(taskTypes.FILTER_TASK, filterTaskSaga);//Chức năng search
 }
 
 export default rootSaga;
