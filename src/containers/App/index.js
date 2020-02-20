@@ -9,7 +9,8 @@ import configureStore from './../../reudx/configureStore';
 // import toastify
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import GloballLoading from '../../components/GloballLoading/index.js';
+import GloballLoading from '../../components/Modal/index.js';
+import Modal from '../../components/Modal';
 
 const store = configureStore();
 
@@ -21,6 +22,7 @@ class App extends Component {
         <ThemeProvider theme={theme}>
           <ToastContainer />
           <GloballLoading />
+          <Modal />
           <Taskboard />
         </ThemeProvider>
       </Provider>

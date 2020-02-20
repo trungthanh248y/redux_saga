@@ -7,7 +7,10 @@ const styles = () => ({
         padding: 20,
         margin: 10,
         background: "red",
-    }
-})
+    },
+    button: {
+        margin: '10%',
+    },
+});
 
 export default styles;

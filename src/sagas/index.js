@@ -1,5 +1,13 @@
 //root saga là một generator function
-import { fork, take, call, put, delay, takeLatest, select } from 'redux-saga/effects';
+import { 
+    fork, 
+    take, 
+    call, 
+    put, 
+    delay, 
+    takeLatest, 
+    select,    
+} from 'redux-saga/effects';
 import * as taskTypes from '../constants/task';
 import { getList } from '../apis/task';
 import { STATUS_CODE } from './../constants';

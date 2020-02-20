@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/styles';
 import PropTypes from 'prop-types';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
-import * as uiActions from './../../actions/ui';
+import * as uiActions from '../../actions/ui';
 
 class GlobalLoading extends Component {
     render() {
