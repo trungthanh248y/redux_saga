@@ -16,11 +16,40 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <!-- <script type="text/JavaScript">
+      let add = (a, b) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if(typeof a != "number"||typeof b != "number") {
+                    return reject(new Error('Tham so phai la kiem number'));
+                }
+                resolve(a + b);
+            }, 1000);
+        });
+      };
+      let a = add(4, '5')
+      .then((result) => {
+        console.log('Then thu nhat: ' + result);
+        return 'Ket qua: ' + result
+      })//khi return về console log thì nó sẽ trả về undefined
+      .catch(err => 'Error' + err)//Khi xẩy ra lỗi thì nó sẽ nhẩy vào function xử lý lỗi, vì vậy lỗi đã dc custom lên có trạng thái resolved
+      //Nếu thử xóa cả then và catch đi thì sẽ báo reject
+      .then((b) => console.log('Thanh cong roi!' + b));
+      console.log(a);
+      setTimeout(() => {
+        console.log(a);
+      }, 2500);
+    </script> -->
+
     <title>React App</title>
   </head>
   <body>
+
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
